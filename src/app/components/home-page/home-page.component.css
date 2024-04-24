@@ -1,0 +1,57 @@
+.top_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.filmInput{
+    width: 20rem;
+}
+
+.main_container > .filmInput {
+    height: 250px;
+}
+
+.service_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:  3px solid black;
+}
+
+.service_container > ul {
+    list-style: none;
+
+}
+
+.service_container > .services{
+    border: 1px solid black;
+}
+
+.buttons > button {
+    margin: 10px;
+}
+
+.info_container > .row  {
+    margin: 5px 10px 10px 10px;
+    padding: 5px 10px 10px 10px;
+}
+
+.info_container > .col {
+    margin: 5px 10px 10px 10px;
+    padding: 5px 10px 10px 10px;
+
+}
+
+.card {
+    margin: 5px 10px 10px 10px;
+
+}

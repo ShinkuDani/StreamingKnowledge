@@ -1,0 +1,55 @@
+<div class="top_container">
+    <h1> Streaming Knowledge</h1>
+    <p> Search for a Film and Find where he is avaliable.</p>
+</div>
+
+<div class="main_container">
+    <form class="mb-3" #filmsForm="ngForm">
+        <input type="text"  class="filmInput form-control"   placeholder="Write a Film name like: Harry Potter" name="filmeTitle" [(ngModel)]="filmTitle">
+    </form>
+
+    <div class="buttons">
+        <button  class="btn btn-success" (click)="mostrarInformacao()"> Search Film </button>
+        <button class="btn btn-danger" (click)="resetarForm(filmsForm)" > Erase Title </button>
+    </div>
+
+    
+</div>
+
+    <div class="info_container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+            @for (resultados of filmData.result; track $index) { 
+                <div class="col">
+                    <div class="card border border-black rounded shadow">
+                        <div class="card-body">
+                            <h1 class="card-title">{{resultados.title}}</h1>
+                            <h5 class="card-text">Type: {{resultados.type.toUpperCase()}} </h5>
+                            <h5 class="card-text">Overview: {{resultados.overview}} </h5>
+                            <h5 class="card-text">Ano de lançamento: {{resultados.year}} </h5>
+                            @if( resultados.status != undefined){
+                                <h5 class="card-text"> Status: {{resultados.status.statusText}} </h5>
+                            }
+                            <div class="service_container">  
+                                <ul>
+                                    @if( resultados.streamingInfo.us != undefined){
+                                        @for(servicesName of resultados.streamingInfo.us; track $index){
+                                    
+                                            <li class="card-text services">
+                                                <h5>Services: {{servicesName.service.toUpperCase()}} </h5> 
+                                                <p>Service_Type: {{servicesName.streamingType.toUpperCase()}} </p> 
+                                            </li>
+
+                                        }
+                                    }
+                                    
+
+                                </ul>
+                                
+                            </div>
+   
+                        </div>
+                    </div>
+                </div>                
+            } 
+        </div>
+</div>
